@@ -38,6 +38,8 @@ bundle exec jekyll serve --livereload
 
 A project is **one Markdown file**, `_projects/<slug>.md`, plus **a media folder**, `assets/projects/<slug>/`. The slug (lowercase-with-dashes) becomes the URL: `/projects/<slug>/`.
 
+> **Using an AI assistant?** Paste `_templates/add-project-prompt.md` into a new chat, fill in the top section, and it will build the page following these rules.
+
 1. Copy `_templates/project.md` to `_projects/so101-policy.md` (for example).
 2. Create `assets/projects/so101-policy/` and put the thumbnail, clips and images in it.
 3. Fill in the short block at the top (between the `---` lines): card details and a TL;DR.
@@ -221,7 +223,7 @@ After that, every push to `main` redeploys automatically.
 
 ## Before launch
 
-- [ ] Replace the placeholder projects: delete `_projects/placeholder-*.md` and `assets/projects/placeholder-*/`
+- [x] Replace the placeholder projects: delete `_projects/placeholder-*.md` and `assets/projects/placeholder-*/`
 - [ ] Replace the CV PDF
 - [ ] Pick a palette and font, then remove the switcher (see above)
 - [ ] Replace `assets/img/og-default.png` if you want a custom share image
