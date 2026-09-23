@@ -1,0 +1,24 @@
+{%- assign p = include.project -%}
+<a class="card{% if include.featured %} card--featured{% endif %}" href="{{ p.url | relative_url }}">
+  <div class="card__media">
+    {%- if p.thumbnail_video %}
+      {%- capture vsrc -%}{% include src.html file=p.thumbnail_video slug=p.slug %}{%- endcapture -%}
+      {%- capture vposter -%}{% include src.html file=p.thumbnail slug=p.slug %}{%- endcapture -%}
+    <video muted playsinline preload="none" data-loop-video
+           poster="{{ vposter | strip | relative_url }}" aria-hidden="true">
+      <source src="{{ vsrc | strip | relative_url }}" type="video/mp4">
+    </video>
+    {%- elsif p.thumbnail %}
+      {%- capture isrc -%}{% include src.html file=p.thumbnail slug=p.slug %}{%- endcapture -%}
+    <img src="{{ isrc | strip | relative_url }}" alt="{{ p.thumbnail_alt | escape }}" loading="lazy" decoding="async">
+    {%- endif %}
+    {% include status-badge.html status=p.status %}
+  </div>
+  <div class="card__body">
+    <h4 class="card__title">{{ p.title }}</h4>
+    {%- if p.result %}
+    <p class="card__result">{{ p.result }}</p>
+    {%- endif %}
+    {% include tags.html project=p %}
+  </div>
+</a>

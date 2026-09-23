@@ -1,0 +1,13 @@
+{%- comment -%} Discipline tags (labels from _data/disciplines.yml) followed by tech tags. {%- endcomment -%}
+{%- assign p = include.project -%}
+{%- if p.disciplines or p.tech %}
+<ul class="tags" role="list">
+  {%- for id in p.disciplines %}
+    {%- assign d = site.data.disciplines | where: 'id', id | first %}
+  <li class="tag tag--discipline">{{ d.label | default: id | escape }}</li>
+  {%- endfor %}
+  {%- for t in p.tech %}
+  <li class="tag">{{ t }}</li>
+  {%- endfor %}
+</ul>
+{%- endif %}

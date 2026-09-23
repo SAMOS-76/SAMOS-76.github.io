@@ -1,13 +1,8 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.1"
-gem "jekyll-sitemap", "~> 1.4.0"
-gem "jekyll-mentions", "~> 1.6.0"
-gem "jekyll-paginate", "~> 1.1.0"
-gem "jekyll-seo-tag", "~> 2.6.1"
-gem "jekyll-redirect-from", "~> 0.16"
-gem "jekyll-feed", "~> 0.15"
-gem "jekyll-commonmark", "~> 1.3.1"
-gem "jekyll-include-cache", "~> 0.2"
-gem "jemoji", "~> 0.12"
-gem "jekyll-remote-theme", "~> 0.3"
+# Pins Jekyll and plugins to the exact versions GitHub Pages uses,
+# so what you preview locally is what gets published.
+gem "github-pages", group: :jekyll_plugins
+
+# Needed on Ruby 3+ for `jekyll serve`.
+gem "webrick"

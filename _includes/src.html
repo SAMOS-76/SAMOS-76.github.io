@@ -1,0 +1,13 @@
+{%- comment -%}
+  Resolves a media path from project front matter to a site-root path.
+    "thumb.jpg"              -> /assets/projects/<slug>/thumb.jpg
+    "/assets/img/x.png"      -> unchanged
+    "https://example.com/x"  -> unchanged
+  Pipe the result through relative_url / absolute_url at the call site
+  (skip that for full https:// URLs).
+{%- endcomment -%}
+{%- if include.file contains '://' or include.file contains '/' -%}
+{{ include.file }}
+{%- else -%}
+/assets/projects/{{ include.slug }}/{{ include.file }}
+{%- endif -%}

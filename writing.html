@@ -1,0 +1,49 @@
+---
+title: Writing
+permalink: /writing/
+description: Posts from my Substack on building and debugging robots.
+intro: Longer write-ups from my Substack.
+---
+{%- comment -%}
+  Posts come from _data/substack.json, refreshed daily by
+  .github/workflows/substack-sync.yml (or edited by hand).
+{%- endcomment -%}
+{%- assign posts = site.data.substack.posts -%}
+{%- assign substack_ready = true -%}
+{%- if site.links.substack == nil or site.links.substack == "" or site.links.substack contains "REPLACE-ME" -%}
+  {%- assign substack_ready = false -%}
+{%- endif -%}
+
+{%- if posts.size > 0 %}
+<ul class="posts" role="list">
+  {%- for post in posts %}
+  <li>
+    <a class="post" href="{{ post.url }}">
+      {%- if post.image %}
+      <div class="post__media"><img src="{{ post.image }}" alt="" loading="lazy" decoding="async"></div>
+      {%- endif %}
+      <div class="post__body">
+        <p class="post__date"><time datetime="{{ post.date }}">{{ post.date | date: "%-d %B %Y" }}</time></p>
+        <h2 class="post__title">{{ post.title }}</h2>
+        {%- if post.subtitle %}
+        <p class="post__subtitle">{{ post.subtitle }}</p>
+        {%- endif %}
+      </div>
+    </a>
+  </li>
+  {%- endfor %}
+</ul>
+{%- else %}
+<div class="empty-state">
+  <p>Posts will appear here once they're published on Substack.</p>
+  {%- if substack_ready %}
+  <p><a href="{{ site.links.substack }}">Visit my Substack</a></p>
+  {%- endif %}
+</div>
+{%- endif %}
+
+{%- if substack_ready %}
+<p class="subscribe">
+  <a class="button" href="{{ site.links.substack }}/subscribe">Subscribe on Substack{% include icon.html name="external" %}</a>
+</p>
+{%- endif %}

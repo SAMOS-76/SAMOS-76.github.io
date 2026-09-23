@@ -1,0 +1,29 @@
+{%- comment -%}
+  Hero media for a project page. Pass media=page.hero slug=page.slug title=page.title
+    hero: { video: hero.mp4, poster: poster.jpg }     muted looping clip with controls
+    hero: { youtube: VIDEO_ID, poster: optional.jpg } click-to-load YouTube (no-cookie)
+    hero: { image: hero.jpg, alt: "…" }               image or GIF
+{%- endcomment -%}
+{%- assign m = include.media -%}
+{%- assign poster = nil -%}
+{%- if m.poster -%}
+  {%- capture poster -%}{% include src.html file=m.poster slug=include.slug %}{%- endcapture -%}
+  {%- assign poster = poster | strip | relative_url -%}
+{%- endif -%}
+
+{%- if m.youtube %}
+  {%- unless poster -%}{%- assign poster = 'https://i.ytimg.com/vi/' | append: m.youtube | append: '/hqdefault.jpg' -%}{%- endunless %}
+<a class="media media--youtube" href="https://www.youtube.com/watch?v={{ m.youtube }}" data-youtube="{{ m.youtube }}" data-title="{{ include.title | escape }}">
+  <img src="{{ poster }}" alt="{{ m.alt | default: include.title | escape }}" decoding="async">
+  <span class="media__play">{% include icon.html name="play" %}<span>Play video</span></span>
+</a>
+{%- elsif m.video %}
+  {%- capture vsrc -%}{% include src.html file=m.video slug=include.slug %}{%- endcapture %}
+<video class="media" controls muted loop playsinline preload="metadata" data-autoplay
+       {% if poster %}poster="{{ poster }}"{% endif %} aria-label="{{ m.alt | default: include.title | escape }}">
+  <source src="{{ vsrc | strip | relative_url }}" type="video/mp4">
+</video>
+{%- elsif m.image %}
+  {%- capture isrc -%}{% include src.html file=m.image slug=include.slug %}{%- endcapture %}
+<img class="media" src="{{ isrc | strip | relative_url }}" alt="{{ m.alt | escape }}" decoding="async">
+{%- endif %}

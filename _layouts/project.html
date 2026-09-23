@@ -1,0 +1,102 @@
+---
+layout: default
+---
+{%- comment -%}
+  One template for every project:
+    header (title, one-line result, status, tags) → hero media → TL;DR
+    → the Markdown body (## Overview / ## Approach / ## Results / ## Improvements)
+    → links → previous/next.
+  Image paths in the body without a leading / are looked up in
+  assets/projects/<slug>/, and all body images get lazy loading.
+{%- endcomment -%}
+{%- assign media_dir = '/assets/projects/' | append: page.slug | append: '/' | relative_url -%}
+{%- assign parts = content | split: 'src="' -%}
+{%- capture body -%}
+{%- for part in parts -%}
+  {%- if forloop.first -%}{{ part }}
+  {%- else -%}
+    {%- assign first = part | slice: 0 -%}{%- assign head = part | slice: 0, 5 -%}
+    {%- if first == '/' or head == 'http:' or head == 'https' or head == 'data:' -%}src="{{ part }}
+    {%- else -%}src="{{ media_dir }}{{ part }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- endcapture -%}
+{%- assign body = body | replace: '<img ', '<img loading="lazy" decoding="async" ' | strip -%}
+
+<article class="project">
+  <header class="wrap project__header">
+    <a class="back-link" href="{{ '/#projects' | relative_url }}">{% include icon.html name="arrow-left" %}All projects</a>
+    <div class="project__status">{% include status-badge.html status=page.status %}</div>
+    <h1 class="project__title">{{ page.title }}</h1>
+    {%- if page.result %}
+    <p class="project__result">{{ page.result }}</p>
+    {%- endif %}
+    {% include tags.html project=page %}
+  </header>
+
+  {%- if page.hero %}
+  <figure class="wrap project__hero">
+    {% include media.html media=page.hero slug=page.slug title=page.title %}
+    {%- if page.hero.caption %}
+    <figcaption>{{ page.hero.caption }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+
+  <div class="wrap wrap--narrow project__body">
+    {%- if page.tldr %}
+    <section class="tldr" aria-labelledby="tldr">
+      <h2 id="tldr" class="tldr__label">TL;DR</h2>
+      <div class="tldr__text">{{ page.tldr | markdownify }}</div>
+    </section>
+    {%- endif %}
+
+    {%- if body != "" %}
+    <div class="project__content prose" data-zoomable>
+      {{ body }}
+    </div>
+    {%- endif %}
+
+    {%- if page.links %}
+    <section class="project__links" aria-labelledby="links">
+      <h2 id="links">Links</h2>
+      <ul class="link-buttons" role="list">
+        {%- for l in page.links %}
+          {%- assign key = l[0] -%}{%- assign href = l[1] -%}{%- assign label = nil -%}
+          {%- if l[1].url -%}{%- assign href = l[1].url -%}{%- assign label = l[1].label -%}{%- endif -%}
+          {%- unless label -%}
+          {%- case key -%}
+            {%- when "repo" -%}{%- assign label = "Code on GitHub" -%}
+            {%- when "writeup" -%}{%- assign label = "Write-up on Substack" -%}
+            {%- when "video" -%}{%- assign label = "Video" -%}
+            {%- when "pcb" -%}{%- assign label = "PCB design files" -%}
+            {%- when "cad" -%}{%- assign label = "CAD files" -%}
+            {%- when "paper" -%}{%- assign label = "Paper" -%}
+            {%- else -%}{%- assign label = key | replace: '_', ' ' | capitalize -%}
+          {%- endcase -%}
+          {%- endunless %}
+        <li><a class="button" href="{{ href | relative_url }}">{{ label }}{% include icon.html name="external" %}</a></li>
+        {%- endfor %}
+      </ul>
+    </section>
+    {%- endif %}
+  </div>
+
+  {%- if page.previous or page.next %}
+  <nav class="wrap wrap--narrow pager" aria-label="More projects">
+    {%- if page.previous %}
+    <a class="pager__link pager__link--prev" href="{{ page.previous.url | relative_url }}">
+      <span class="pager__dir">{% include icon.html name="arrow-left" %}Previous</span>
+      <span class="pager__title">{{ page.previous.title }}</span>
+    </a>
+    {%- endif %}
+    {%- if page.next %}
+    <a class="pager__link pager__link--next" href="{{ page.next.url | relative_url }}">
+      <span class="pager__dir">Next{% include icon.html name="arrow-right" %}</span>
+      <span class="pager__title">{{ page.next.title }}</span>
+    </a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</article>

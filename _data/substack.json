@@ -1,0 +1,20 @@
+{
+  "source": "https://samos76.substack.com",
+  "updated": "2026-09-23T15:44:41Z",
+  "posts": [
+    {
+      "title": "RL Finetuning Research with custom SAC: Part 2",
+      "url": "https://samos76.substack.com/p/rl-finetuning-research-with-custom",
+      "date": "2026-08-20",
+      "subtitle": "Comparing behaviour cloning, demo-seeded RL and RL finetuning on a Panda arm, and what breaks when you combine them.",
+      "image": "https://substackcdn.com/image/fetch/$s_!dPRa!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F34404e84-1916-4eb1-b155-12e47a503f49_540x422.gif"
+    },
+    {
+      "title": "Implementing SAC + HER from Scratch: Part 1",
+      "url": "https://samos76.substack.com/p/implementing-sac-her-from-scratch",
+      "date": "2026-08-20",
+      "subtitle": "The struggles of building SAC + HER from scratch, and what the paper doesn't tell you about implementing it.",
+      "image": "https://substackcdn.com/image/fetch/$s_!JY2Y!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F4fb0b263-a724-493b-8090-8a5defacc8dc_720x480.gif"
+    }
+  ]
+}

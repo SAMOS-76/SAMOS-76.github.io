@@ -1,0 +1,16 @@
+# Filter chips on the home page, in display order.
+# A project lists one or more of these ids under `disciplines:`.
+# Chips with no projects are hidden automatically.
+
+- id: electronics
+  label: Electronics & PCB
+- id: embedded
+  label: Embedded & Control
+- id: mechanical
+  label: Mechanical & CAD
+- id: ros2-slam
+  label: ROS2 & SLAM
+- id: robot-learning
+  label: Robot Learning
+- id: simulation
+  label: Simulation

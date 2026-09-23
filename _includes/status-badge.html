@@ -1,0 +1,4 @@
+{%- case include.status -%}
+{%- when "in-progress" -%}<span class="badge badge--progress">In Progress</span>
+{%- when "shipped" -%}<span class="badge badge--shipped">Shipped</span>
+{%- endcase -%}

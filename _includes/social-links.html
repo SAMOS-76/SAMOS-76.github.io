@@ -1,0 +1,18 @@
+{%- comment -%} Icon + label link row. Empty values in _config.yml `links:` are skipped. {%- endcomment -%}
+<ul class="social{% if include.class %} {{ include.class }}{% endif %}">
+  {%- if site.links.github != "" and site.links.github %}
+  <li><a href="{{ site.links.github }}" rel="me noopener">{% include icon.html name="github" %}<span>GitHub</span></a></li>
+  {%- endif %}
+  {%- if site.links.linkedin != "" and site.links.linkedin %}
+  <li><a href="{{ site.links.linkedin }}" rel="me noopener">{% include icon.html name="linkedin" %}<span>LinkedIn</span></a></li>
+  {%- endif %}
+  {%- if site.links.substack != "" and site.links.substack %}
+  <li><a href="{{ site.links.substack }}" rel="me noopener">{% include icon.html name="substack" %}<span>Substack</span></a></li>
+  {%- endif %}
+  {%- if site.links.cv != "" and site.links.cv %}
+  <li><a href="{{ site.links.cv | relative_url }}">{% include icon.html name="cv" %}<span>CV</span></a></li>
+  {%- endif %}
+  {%- if site.author.email != "" and site.author.email %}
+  <li><a href="mailto:{{ site.author.email }}">{% include icon.html name="email" %}<span>Email</span></a></li>
+  {%- endif %}
+</ul>

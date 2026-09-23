@@ -1,0 +1,22 @@
+{%- comment -%}
+  DEV ONLY: palette/font picker. Turn off with `dev_switcher: false` in _config.yml.
+  Also works via URL: ?theme=oak|linen|birch  &font=fraunces|newsreader|sans
+{%- endcomment -%}
+<form class="dev-switcher" aria-label="Preview theme (dev only)" data-dev-switcher>
+  <p class="dev-switcher__title">Preview</p>
+  <label>Palette
+    <select name="theme">
+      <option value="oak">Oak &amp; Sage</option>
+      <option value="linen">Linen &amp; Olive</option>
+      <option value="birch">Birch &amp; Moss</option>
+    </select>
+  </label>
+  <label>Fonts
+    <select name="font">
+      <option value="fraunces">Fraunces + Inter</option>
+      <option value="newsreader">Newsreader + Inter</option>
+      <option value="sans">Inter only</option>
+    </select>
+  </label>
+</form>
+<script src="{{ '/assets/js/theme.js' | relative_url }}" defer></script>

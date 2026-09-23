@@ -1,0 +1,42 @@
+# Pulls your latest Substack posts into _data/substack.json once a day
+# (and whenever you press "Run workflow" on the Actions tab).
+# It only commits when something changed, then asks Pages to rebuild.
+name: Sync Substack posts
+
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily, 06:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch feed
+        run: python scripts/substack_sync.py
+
+      - name: Commit and rebuild if changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- _data/substack.json; then
+            echo "No changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _data/substack.json
+          git commit -m "Sync Substack posts"
+          git push
+          # Make sure GitHub Pages rebuilds with the new data.
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true

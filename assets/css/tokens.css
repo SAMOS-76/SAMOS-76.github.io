@@ -1,0 +1,141 @@
+/* ==========================================================================
+   DESIGN TOKENS: the only place colours, fonts, sizes and spacing live.
+   main.css only uses these variables, so a theme swap never touches layout.
+
+   Palettes:  oak (default) · linen · birch   → <html data-theme="…">
+   Fonts:     fraunces (default) · newsreader · sans → <html data-font="…">
+   At launch: keep the palette you chose in the first :root block and
+   delete the other [data-theme] / [data-font] blocks.
+   ========================================================================== */
+
+/* ── Palette 1: Oak & Sage (default) ──────────────────────────────────────
+   warm off-white · sand cards · light-oak lines · sage accent · terracotta pop */
+:root,
+[data-theme="oak"] {
+  --bg:            #FAF7F2;  /* page background, warm off-white */
+  --surface:       #F2ECE2;  /* cards, panels (sand) */
+  --surface-2:     #E9E0D1;  /* image placeholders, hover fills */
+  --wood:          #D8C4A2;  /* borders, dividers (light oak) */
+  --wood-soft:     #EDE3D2;  /* tag background */
+  --text:          #26241F;  /* body text, warm charcoal */
+  --muted:         #5F594E;  /* secondary text */
+  --accent:        #4F6B4C;  /* links, active filter, Shipped (sage) */
+  --accent-strong: #3D553B;  /* hover, text on tinted fills */
+  --accent-soft:   #E3EADD;  /* tinted fill for discipline tags & badges */
+  --highlight:     #CFE0C6;  /* green marker behind your name, text selection */
+  --on-accent:     #FFFFFF;  /* text on --accent */
+  --pop:           #C4553A;  /* the ONE pop colour: In Progress dot, highlights (terracotta) */
+  --pop-ink:       #9E3D27;  /* pop-coloured text on light backgrounds */
+  --pop-soft:      #F6E3DB;  /* pop tinted fill */
+}
+
+/* ── Palette 2: Linen & Olive ─────────────────────────────────────────────
+   paler, crisper · ash-wood lines · olive accent · ochre pop */
+[data-theme="linen"] {
+  --bg:            #FBFAF6;
+  --surface:       #F1EDE3;
+  --surface-2:     #E8E2D3;
+  --wood:          #CDBB96;
+  --wood-soft:     #ECE5D4;
+  --text:          #232520;
+  --muted:         #5B5C52;
+  --accent:        #5A6630;
+  --accent-strong: #464F22;
+  --accent-soft:   #E7EAD5;
+  --highlight:     #DCE3BA;
+  --on-accent:     #FFFFFF;
+  --pop:           #D6A12B;
+  --pop-ink:       #74540A;
+  --pop-soft:      #F7ECCD;
+}
+
+/* ── Palette 3: Birch & Moss ──────────────────────────────────────────────
+   creamier, deeper green · honey-oak lines · moss accent · cobalt pop */
+[data-theme="birch"] {
+  --bg:            #F7F4EE;
+  --surface:       #EEE7DB;
+  --surface-2:     #E4D9C7;
+  --wood:          #C8AB82;
+  --wood-soft:     #EADFCC;
+  --text:          #1F2320;
+  --muted:         #545C56;
+  --accent:        #2F5E48;
+  --accent-strong: #234737;
+  --accent-soft:   #DCE7DF;
+  --highlight:     #C7DDCF;
+  --on-accent:     #FFFFFF;
+  --pop:           #2C5BB8;
+  --pop-ink:       #244C99;
+  --pop-soft:      #E1E8F6;
+}
+
+/* ── Fonts ─────────────────────────────────────────────────────────────── */
+:root,
+[data-font="fraunces"] {
+  --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
+  --heading-weight: 500;
+  --heading-tracking: -0.015em;
+}
+[data-font="newsreader"] {
+  --font-heading: "Newsreader", Georgia, "Times New Roman", serif;
+  --heading-weight: 500;
+  --heading-tracking: -0.01em;
+}
+[data-font="sans"] {
+  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --heading-weight: 600;
+  --heading-tracking: -0.025em;
+}
+
+/* ── Type, spacing, shape, motion (shared by every palette) ────────────── */
+:root {
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* fluid type scale */
+  --step--2: 0.78rem;
+  --step--1: 0.875rem;
+  --step-0:  clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  --step-1:  clamp(1.15rem, 1.08rem + 0.35vw, 1.3rem);
+  --step-2:  clamp(1.35rem, 1.2rem + 0.7vw, 1.7rem);
+  --step-3:  clamp(1.6rem, 1.35rem + 1.2vw, 2.2rem);
+  --step-4:  clamp(2rem, 1.6rem + 2vw, 3rem);
+  --step-5:  clamp(2.5rem, 1.8rem + 3.6vw, 4.5rem);
+  --leading: 1.6;
+  --leading-tight: 1.15;
+
+  /* spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: clamp(3.5rem, 2.5rem + 5vw, 6rem);
+
+  /* layout */
+  --max-width: 72rem;
+  --max-width-narrow: 46rem;
+  --gutter: clamp(1rem, 0.5rem + 2.5vw, 2rem);
+
+  /* shape & depth */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
+  --radius-full: 999px;
+  --shadow-hover: 0 1px 2px rgb(38 36 31 / 0.06), 0 10px 24px -12px rgb(38 36 31 / 0.22);
+  --focus: var(--accent);
+
+  /* lightbox / video overlays (dark, the same in every palette) */
+  --overlay: rgb(24 22 19 / 0.96);
+  --overlay-solid: #181613;  /* lightbox background */
+  --on-overlay: #F5F1EA;
+  --overlay-line: rgb(245 241 234 / 0.3);
+  --overlay-fill: rgb(245 241 234 / 0.08);
+  --overlay-fill-hover: rgb(245 241 234 / 0.2);
+
+  /* motion */
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur: 180ms;
+}
