@@ -22,6 +22,9 @@ layout: default
     {%- if page.result %}
     <p class="project__result">{{ page.result }}</p>
     {%- endif %}
+    {%- if page.award %}
+    <p class="award award--header">{% include icon.html name="award" %}{{ page.award }}</p>
+    {%- endif %}
     {% include tags.html project=page %}
   </header>
 

@@ -1,10 +1,11 @@
 ---
 title: "House Helping Robot"
 result: "A low-cost, voice-controlled mobile manipulator: say “grab the vase” and it finds the object with YOLO and a depth camera, solves its arm’s inverse kinematics and retrieves it."
-date: 2025-10-10
+date: 2022-06-01
 status: shipped
 featured: true
 featured_order: 2
+award: "Runner-up · The Big Bang Competition 2022"
 
 disciplines: [mechanical, electronics, embedded]
 tech: [Raspberry Pi 4, Arduino Nano, Python, YOLOv3-tiny, Intel RealSense, spaCy, 3D printing]
@@ -19,10 +20,11 @@ hero:
   alt: "The robot arm reaching for and grabbing a vase on a desk"
 
 tldr: >-
-  A home and care-assistant robot I designed and built end to end: an
-  aluminium-extrusion base, a 3D-printed arm, custom drive and arm
-  electronics, and a voice → vision → inverse-kinematics pipeline that lets
-  anyone ask it to fetch an object.
+  A home and care-assistant robot I designed and built end to end in 2022,
+  during high school: an aluminium-extrusion base, a 3D-printed arm, custom
+  drive and arm electronics, and a voice → vision → inverse-kinematics pipeline
+  that lets anyone ask it to fetch an object. It came runner-up in the Senior
+  Engineering category of The Big Bang Competition.
 
 links:
   repo: https://github.com/SAMOS-76/House-Helping-Robot
@@ -30,7 +32,7 @@ links:
 
 ## Overview
 
-Personal robots like Toyota's HSR can take repetitive, physical tasks off people's hands at home or in care settings. The House Helping Robot (HHR) was my attempt at an accessible, affordable one, built around four aims:
+Personal robots like Toyota's HSR can take repetitive, physical tasks off people's hands at home or in care settings. The House Helping Robot (HHR), which I built in high school, was my attempt at an accessible, affordable one, built around four aims:
 
 - **Easy to use:** anyone can operate it without complex training.
 - **Cheap and reliable:** affordable enough to run several in a care home.
@@ -71,7 +73,7 @@ A Raspberry Pi 4 runs the high-level software and talks to an Arduino Nano over 
 
 ## Results
 
-The finished robot navigated stably, handled objects reliably and responded to voice commands.
+The finished robot navigated stably, handled objects reliably and responded to voice commands. I entered it in The Big Bang Competition 2022, where it came **runner-up in the Senior Engineering category**.
 
 ![The finished House Helping Robot: wheeled base, aluminium column, depth camera and 3D-printed arm](robot.jpg)
 

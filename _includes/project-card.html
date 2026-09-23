@@ -16,6 +16,9 @@
   </div>
   <div class="card__body">
     <h4 class="card__title">{{ p.title }}</h4>
+    {%- if p.award %}
+    <p class="award">{% include icon.html name="award" %}{{ p.award }}</p>
+    {%- endif %}
     {%- if p.result %}
     <p class="card__result">{{ p.result }}</p>
     {%- endif %}

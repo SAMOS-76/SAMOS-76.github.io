@@ -7,6 +7,7 @@ result: "One line for the project card: what it does and the concrete result."
 date: 2026-01-01              # sets the order in the grid (newest first)
 status: shipped               # shipped | in-progress
 featured: false               # true = also shown in the Featured row at the top
+# award: "Runner-up · The Big Bang Competition 2022"   # optional highlight on the card (keep it short)
 
 disciplines: [electronics]    # electronics | embedded | mechanical | ros2-slam | robot-learning | simulation
 tech: [KiCad, STM32, C]
