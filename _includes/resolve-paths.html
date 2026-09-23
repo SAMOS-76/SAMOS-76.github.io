@@ -1,0 +1,14 @@
+{%- comment -%}
+  Rewrites relative attr="file" paths in include.html to the project's media folder.
+  Usage: {% include resolve-paths.html html=content attr='src="' dir=media_dir %}
+{%- endcomment -%}
+{%- assign rp_parts = include.html | split: include.attr -%}
+{%- for rp_part in rp_parts -%}
+  {%- if forloop.first -%}{{ rp_part }}
+  {%- else -%}
+    {%- assign rp_first = rp_part | slice: 0 -%}{%- assign rp_head = rp_part | slice: 0, 5 -%}
+    {%- if rp_first == '/' or rp_head == 'http:' or rp_head == 'https' or rp_head == 'data:' -%}{{ include.attr }}{{ rp_part }}
+    {%- else -%}{{ include.attr }}{{ include.dir }}{{ rp_part }}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}

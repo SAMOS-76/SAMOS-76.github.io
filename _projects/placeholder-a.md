@@ -4,8 +4,7 @@ title: "Placeholder Project A"
 result: "Placeholder one-line result: what the board does and a concrete outcome goes here."
 date: 2026-05-01
 status: shipped
-featured: true
-featured_order: 2
+featured: false
 
 disciplines: [electronics, embedded]
 tech: [KiCad, STM32, C, FOC]

@@ -6,22 +6,12 @@ layout: default
     header (title, one-line result, status, tags) → hero media → TL;DR
     → the Markdown body (## Overview / ## Approach / ## Results / ## Improvements)
     → links → previous/next.
-  Image paths in the body without a leading / are looked up in
-  assets/projects/<slug>/, and all body images get lazy loading.
+  Image/video paths (src, poster) in the body without a leading / are looked up
+  in assets/projects/<slug>/, and all body images get lazy loading.
 {%- endcomment -%}
 {%- assign media_dir = '/assets/projects/' | append: page.slug | append: '/' | relative_url -%}
-{%- assign parts = content | split: 'src="' -%}
-{%- capture body -%}
-{%- for part in parts -%}
-  {%- if forloop.first -%}{{ part }}
-  {%- else -%}
-    {%- assign first = part | slice: 0 -%}{%- assign head = part | slice: 0, 5 -%}
-    {%- if first == '/' or head == 'http:' or head == 'https' or head == 'data:' -%}src="{{ part }}
-    {%- else -%}src="{{ media_dir }}{{ part }}
-    {%- endif -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- endcapture -%}
+{%- capture body -%}{% include resolve-paths.html html=content attr='src="' dir=media_dir %}{%- endcapture -%}
+{%- capture body -%}{% include resolve-paths.html html=body attr='poster="' dir=media_dir %}{%- endcapture -%}
 {%- assign body = body | replace: '<img ', '<img loading="lazy" decoding="async" ' | strip -%}
 
 <article class="project">
