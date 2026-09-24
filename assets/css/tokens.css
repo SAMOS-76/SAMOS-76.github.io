@@ -1,17 +1,12 @@
 /* ==========================================================================
    DESIGN TOKENS: the only place colours, fonts, sizes and spacing live.
    main.css only uses these variables, so a theme swap never touches layout.
-
-   Palettes:  oak (default) · linen · birch   → <html data-theme="…">
-   Fonts:     fraunces (default) · newsreader · sans → <html data-font="…">
-   At launch: keep the palette you chose in the first :root block and
-   delete the other [data-theme] / [data-font] blocks.
+   Palette: Oak & Sage. Fonts: Fraunces (headings) + Inter (body).
    ========================================================================== */
 
-/* ── Palette 1: Oak & Sage (default) ──────────────────────────────────────
+/* ── Palette: Oak & Sage ──────────────────────────────────────────────────
    warm off-white · sand cards · light-oak lines · sage accent · terracotta pop */
-:root,
-[data-theme="oak"] {
+:root {
   --bg:            #FAF7F2;  /* page background, warm off-white */
   --surface:       #F2ECE2;  /* cards, panels (sand) */
   --surface-2:     #E9E0D1;  /* image placeholders, hover fills */
@@ -29,65 +24,14 @@
   --pop-soft:      #F6E3DB;  /* pop tinted fill */
 }
 
-/* ── Palette 2: Linen & Olive ─────────────────────────────────────────────
-   paler, crisper · ash-wood lines · olive accent · ochre pop */
-[data-theme="linen"] {
-  --bg:            #FBFAF6;
-  --surface:       #F1EDE3;
-  --surface-2:     #E8E2D3;
-  --wood:          #CDBB96;
-  --wood-soft:     #ECE5D4;
-  --text:          #232520;
-  --muted:         #5B5C52;
-  --accent:        #5A6630;
-  --accent-strong: #464F22;
-  --accent-soft:   #E7EAD5;
-  --highlight:     #DCE3BA;
-  --on-accent:     #FFFFFF;
-  --pop:           #D6A12B;
-  --pop-ink:       #74540A;
-  --pop-soft:      #F7ECCD;
-}
-
-/* ── Palette 3: Birch & Moss ──────────────────────────────────────────────
-   creamier, deeper green · honey-oak lines · moss accent · cobalt pop */
-[data-theme="birch"] {
-  --bg:            #F7F4EE;
-  --surface:       #EEE7DB;
-  --surface-2:     #E4D9C7;
-  --wood:          #C8AB82;
-  --wood-soft:     #EADFCC;
-  --text:          #1F2320;
-  --muted:         #545C56;
-  --accent:        #2F5E48;
-  --accent-strong: #234737;
-  --accent-soft:   #DCE7DF;
-  --highlight:     #C7DDCF;
-  --on-accent:     #FFFFFF;
-  --pop:           #2C5BB8;
-  --pop-ink:       #244C99;
-  --pop-soft:      #E1E8F6;
-}
-
 /* ── Fonts ─────────────────────────────────────────────────────────────── */
-:root,
-[data-font="fraunces"] {
+:root {
   --font-heading: "Fraunces", Georgia, "Times New Roman", serif;
   --heading-weight: 500;
   --heading-tracking: -0.015em;
 }
-[data-font="newsreader"] {
-  --font-heading: "Newsreader", Georgia, "Times New Roman", serif;
-  --heading-weight: 500;
-  --heading-tracking: -0.01em;
-}
-[data-font="sans"] {
-  --font-heading: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --heading-weight: 600;
-  --heading-tracking: -0.025em;
-}
 
-/* ── Type, spacing, shape, motion (shared by every palette) ────────────── */
+/* ── Type, spacing, shape, motion ─────────────────────────────────────── */
 :root {
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;

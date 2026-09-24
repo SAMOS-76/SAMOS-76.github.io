@@ -5,7 +5,7 @@ My robotics portfolio. It's a Jekyll site built and hosted by GitHub Pages. Each
 - [Preview locally](#preview-locally)
 - [Add a project](#add-a-project)
 - [Edit the rest of the copy](#edit-the-rest-of-the-copy)
-- [Palettes and fonts](#palettes-and-fonts)
+- [Colours and fonts](#colours-and-fonts)
 - [Writing tab (Substack)](#writing-tab-substack)
 - [Deploy to GitHub Pages](#deploy-to-github-pages)
 - [Before launch](#before-launch)
@@ -162,36 +162,11 @@ When someone pastes your site link into LinkedIn, Slack, WhatsApp and so on, tho
 
 ---
 
-## Palettes and fonts
+## Colours and fonts
 
-All colours, fonts, sizes and spacing live in **`assets/css/tokens.css`**. `main.css` only uses those variables, so changing the theme never means touching layouts.
+The site uses the **Oak & Sage** palette (warm off-white, sand cards, light-oak lines, sage green accents, one terracotta "pop" for In Progress) with **Fraunces** headings and **Inter** body text.
 
-### Compare on the real site
-
-While `dev_switcher: true` is set in `_config.yml`, a small **Preview** box sits in the bottom-right corner. You can also use URL parameters:
-
-| Palette | URL |
-|---|---|
-| Oak & Sage (default): sand, light oak, sage, terracotta pop | `?theme=oak` |
-| Linen & Olive: paler, olive, ochre pop | `?theme=linen` |
-| Birch & Moss: creamier, deep moss, cobalt pop | `?theme=birch` |
-
-| Fonts | URL |
-|---|---|
-| Fraunces headings + Inter body (default) | `?font=fraunces` |
-| Newsreader headings + Inter body | `?font=newsreader` |
-| Inter only | `?font=sans` |
-
-Combine them, e.g. `http://localhost:4000/?theme=birch&font=newsreader`. The choice is remembered as you click around.
-
-### Lock in a choice and remove the switcher
-
-1. In `tokens.css`, copy the chosen palette's values into the first block (`:root, [data-theme="oak"]`), then delete the other `[data-theme=…]` blocks. Do the same for the font blocks.
-2. If you chose Newsreader, swap `Fraunces` for `Newsreader` in the Google Fonts URL in `_includes/head.html` (the `{%- else %}` line).
-3. Set `dev_switcher: false` in `_config.yml`. That removes the picker, its script, and the extra font download.
-4. Optionally delete `_includes/theme-switcher.html` and `assets/js/theme.js`.
-
-Every text colour in all three palettes passes WCAG AA contrast (≥ 4.5:1). If you tweak a colour, re-check it with a tool like <https://webaim.org/resources/contrastchecker/>.
+All colours, fonts, sizes and spacing live in **`assets/css/tokens.css`**. `main.css` only uses those variables, so you can change a colour or font in one place without touching any layout. If you change a text colour, check it still has enough contrast (≥ 4.5:1) with a tool like <https://webaim.org/resources/contrastchecker/>.
 
 ---
 
@@ -225,7 +200,6 @@ After that, every push to `main` redeploys automatically.
 
 - [x] Replace the placeholder projects: delete `_projects/placeholder-*.md` and `assets/projects/placeholder-*/`
 - [ ] Replace the CV PDF
-- [ ] Pick a palette and font, then remove the switcher (see above)
 - [ ] Replace `assets/img/og-default.png` if you want a custom share image
 - [ ] Test on a phone, and test a link preview in LinkedIn's Post Inspector
 
@@ -246,7 +220,7 @@ _layouts/                page templates (home, project, page, default)
 _includes/               pieces: cards, media, gallery, head/SEO, icons…
 assets/css/tokens.css    ALL colours, fonts, spacing
 assets/css/main.css      layout (uses tokens only)
-assets/js/               filter, video, lightbox, dev theme picker
+assets/js/               filter, video, lightbox
 assets/projects/<slug>/  each project's media
 assets/img/              favicon, share image
 assets/cv/               CV PDF

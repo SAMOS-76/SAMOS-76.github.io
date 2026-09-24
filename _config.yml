@@ -30,9 +30,6 @@ links:
 # Default image for link previews (LinkedIn, Slack, etc.). 1200×630 PNG or JPG.
 og_image: /assets/img/og-default.png
 
-# Dev-only palette/font switcher (?theme= and ?font=). Set to false before launch.
-dev_switcher: true
-
 # ─────────────────────────────────────────────────────────────
 #  Build settings: you shouldn't need to touch these.
 # ─────────────────────────────────────────────────────────────
