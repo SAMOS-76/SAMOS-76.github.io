@@ -25,7 +25,7 @@ links:
   github: https://github.com/SAMOS-76
   linkedin: https://www.linkedin.com/in/samuela-o/
   substack: https://samos76.substack.com                   # no trailing slash
-  cv: /assets/cv/Samuel-Amos-Osebeyo-CV.pdf               # replace the PDF, keep the name
+  cv: /assets/cv/Samuel_Amos_Osebeyo_CV.pdf               # must match the PDF's file name exactly
 
 # Default image for link previews (LinkedIn, Slack, etc.). 1200×630 PNG or JPG.
 og_image: /assets/img/og-default.png

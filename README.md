@@ -152,7 +152,7 @@ Use MP4, not GIF: a 5 MB GIF is usually a 300 KB MP4. Card loops play only while
 | Greeting and title line at the top | `_config.yml`, under `author:` |
 | About paragraph (under the title line) | `index.md` |
 | GitHub / LinkedIn / Substack / CV links, email | `_config.yml`, under `links:` and `author.email` (set a link to `""` to hide it) |
-| CV | Replace `assets/cv/Samuel-Amos-Osebeyo-CV.pdf` (keep the file name) |
+| CV | Replace `assets/cv/Samuel_Amos_Osebeyo_CV.pdf`. Keep the same file name, or update `links.cv` in `_config.yml` to match the new one |
 | Share image | `assets/img/og-default.png` (see below) |
 | Favicon | `assets/img/favicon.svg` (+ `favicon-32.png`, `apple-touch-icon.png`) |
 
