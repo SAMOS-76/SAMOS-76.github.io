@@ -3,7 +3,6 @@ title: "Franka VR Teleoperation at Europe Embodied"
 result: "In a 48-hour hackathon I set up a Franka Panda from scratch, built Meta Quest 3 teleoperation for it in a day, and we collected over 100 demonstrations for policy training."
 date: 2026-06-26
 status: shipped
-featured: false
 
 disciplines: [robot-learning]
 tech: [Franka Panda, Meta Quest 3, Oculus Reader, ADB, Polymetis, libfranka, ZeroRPC, PREEMPT_RT, LeRobot, HIL-SERL, Python]

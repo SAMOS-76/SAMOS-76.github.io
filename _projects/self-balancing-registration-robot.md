@@ -3,8 +3,6 @@ title: "Autonomous Self-Balancing Registration Robot"
 result: "I led a team of six to build a two-wheeled balancing robot that roams a venue, finds people and identifies them by face with over 80% accuracy, marking each one on a live map."
 date: 2026-06-18
 status: shipped
-featured: true
-featured_order: 3
 
 disciplines: [ros2-slam, simulation]
 tech: [ROS 2 Humble, slam_toolbox, robot_localization, Gazebo, InsightFace, FastAPI, WebSockets, Raspberry Pi, LD19 LiDAR, Python]

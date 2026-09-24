@@ -3,8 +3,6 @@ title: "Robotic Arm Redesign for the European Rover Challenge 2025–26"
 result: "I led a team of four to redesign our rover's arm. On my V3 board and a ROS 2 / MoveIt 2 control stack, it picks up a plushie driven from a game controller."
 date: 2026-05-21
 status: shipped
-featured: true
-featured_order: 5
 
 disciplines: [electronics, embedded, ros2-slam, simulation, mechanical]
 tech: [ESP32, FreeRTOS, ROS 2, MoveIt 2, ros2_control, URDF, RViz, Molex connectors, XT30, Stepper motors, Servos, 3D printing]

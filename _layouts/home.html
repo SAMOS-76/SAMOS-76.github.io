@@ -2,7 +2,6 @@
 layout: default
 ---
 {%- assign projects = site.projects | sort: 'date' | reverse -%}
-{%- assign featured = site.projects | where: 'featured', true | sort: 'featured_order', 'last' -%}
 
 <section class="hero wrap" id="about" aria-labelledby="hero-title">
   {%- capture hl_name %}<span class="hl">{{ site.author.first_name }}</span>{% endcapture %}
@@ -17,16 +16,6 @@ layout: default
 <section class="section wrap" id="projects" aria-labelledby="projects-title">
   <h2 class="section__title" id="projects-title">Projects</h2>
 
-  {%- if featured.size > 0 %}
-  <h3 class="eyebrow">Featured</h3>
-  <ul class="grid grid--featured" role="list">
-    {%- for p in featured %}
-    <li>{% include project-card.html project=p featured=true %}</li>
-    {%- endfor %}
-  </ul>
-  {%- endif %}
-
-  <h3 class="eyebrow" id="all-projects">All projects</h3>
   <div class="filters" role="group" aria-label="Filter projects by discipline" data-filters hidden>
     <button type="button" class="chip" data-filter="all" aria-pressed="true">All <span class="chip__count">{{ projects.size }}</span></button>
     {%- for d in site.data.disciplines %}

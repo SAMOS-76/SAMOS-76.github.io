@@ -3,8 +3,6 @@ title: "Parkour for Damaged Quadrupeds"
 result: "Rebuilt a damage-tolerant quadruped parkour pipeline in Isaac Lab and deployed my policy on a Unitree Go2, which climbed a box with its front-left leg motor locked."
 date: 2026-09-01
 status: in-progress
-featured: true
-featured_order: 4
 
 disciplines: [robot-learning, simulation]
 tech: [Isaac Lab, Isaac Gym, PyTorch, PPO, DAgger, Multi-GPU training, Unitree Go2, Intel RealSense D435, NVIDIA Jetson Orin, Python]

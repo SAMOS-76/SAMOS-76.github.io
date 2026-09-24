@@ -3,8 +3,6 @@ title: "House Helping Robot"
 result: "A low-cost, voice-controlled mobile manipulator: say “grab the vase” and it finds the object with YOLO and a depth camera, solves its arm’s inverse kinematics and retrieves it."
 date: 2022-06-01
 status: shipped
-featured: true
-featured_order: 2
 award: "Runner-up · The Big Bang Competition 2022"
 
 disciplines: [mechanical, electronics, embedded]

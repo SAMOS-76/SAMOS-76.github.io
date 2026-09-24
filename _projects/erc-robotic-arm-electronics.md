@@ -3,7 +3,6 @@ title: "Robotic Arm Electronics for the European Rover Challenge 2024–25"
 result: "I designed two control boards for our rover's 5-DoF arm. V2 ran the arm at the competition in Poland, where we came 16th overall and first of the UK teams."
 date: 2025-08-31
 status: shipped
-featured: false
 
 disciplines: [electronics, embedded]
 tech: [ESP32-S3, FreeRTOS, I2C, I2C multiplexer, Magnetic encoders, DM332T stepper drivers, MOSFET level shifting, ADC]

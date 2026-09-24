@@ -3,8 +3,6 @@ title: "SAC + HER from Scratch, and BC → RL Finetuning"
 result: "Finetuning a behaviour-cloned policy with my own SAC + HER reached 100% pick-and-place success in 1.6M env-steps, under half the 3.48M demo-seeded RL needed."
 date: 2026-08-20
 status: shipped
-featured: true
-featured_order: 1
 
 disciplines: [robot-learning, simulation]
 tech: [Python, PyTorch, SAC, HER, panda-gym, PyBullet]

@@ -54,7 +54,6 @@ title: "SO-101 pick-and-place policy"
 result: "One sentence for the card, with the concrete result."
 date: 2026-09-01
 status: in-progress          # shipped | in-progress
-featured: true               # also show it in the Featured row
 
 disciplines: [robot-learning, simulation]
 tech: [PyTorch, Isaac Lab, LeRobot]
@@ -120,7 +119,7 @@ To add or rename a category, edit `_data/disciplines.yml` (the order there is th
 
 - If a value contains `: ` (colon-space), wrap it in quotes: `result: "Motor A: 2x torque"`.
 - Indent with spaces, never tabs.
-- `featured_order: 1` / `2` sets the order in the Featured row if you feature more than one.
+- `date:` sets the order in the project grid (newest first).
 
 ### Media guidelines
 

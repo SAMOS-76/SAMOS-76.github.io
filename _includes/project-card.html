@@ -1,5 +1,5 @@
 {%- assign p = include.project -%}
-<a class="card{% if include.featured %} card--featured{% endif %}" href="{{ p.url | relative_url }}">
+<a class="card" href="{{ p.url | relative_url }}">
   <div class="card__media">
     {%- if p.thumbnail_video %}
       {%- capture vsrc -%}{% include src.html file=p.thumbnail_video slug=p.slug %}{%- endcapture -%}
@@ -15,7 +15,7 @@
     {% include status-badge.html status=p.status %}
   </div>
   <div class="card__body">
-    <h4 class="card__title">{{ p.title }}</h4>
+    <h3 class="card__title">{{ p.title }}</h3>
     {%- if p.award %}
     <p class="award">{% include icon.html name="award" %}{{ p.award }}</p>
     {%- endif %}

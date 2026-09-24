@@ -6,7 +6,6 @@ Add a new project to my portfolio website.
 - Substack write-up(s), if any:
 - Extra media (photos/videos/GIFs) and where they are, if not in the repo:
 - Status: shipped / in-progress
-- Featured on the home page? (yes/no, and in which position)
 - Award or recognition, if any:
 - When I built it (year/month) and context (e.g. uni module, internship, personal):
 - Anything else you should know (what I'm proudest of, what broke, what to emphasise):
@@ -15,7 +14,7 @@ Add a new project to my portfolio website.
 - Repo: C:\Users\soseb\OneDrive\Documents\SAMOS-76.github.io (GitHub Pages user site, live at https://samos-76.github.io). It's Jekyll with a `projects` collection.
 - A project is ONE Markdown file `_projects/<slug>.md` plus ONE media folder `assets/projects/<slug>/`. The slug is lowercase-with-dashes.
 - Start from `_templates/project.md`. Read the README's "Add a project" section and one existing project first (`_projects/sac-her-bc-rl-finetuning.md` is the best example) and match their style.
-- Front matter: `title`, `result` (one line for the card, stating a concrete result), `date`, `status`, `featured`/`featured_order`, optional `award`, `disciplines`, `tech`, `thumbnail`, `thumbnail_alt`, `thumbnail_video`, `hero` (`video`/`youtube`/`image` + `poster`, `alt`, optional `caption`), `tldr` (2–3 lines, no metric tiles), `links` (`repo`, `writeup`, or custom `{label, url}` entries).
+- Front matter: `title`, `result` (one line for the card, stating a concrete result), `date` (sets the order in the grid, newest first), `status`, optional `award`, `disciplines`, `tech`, `thumbnail`, `thumbnail_alt`, `thumbnail_video`, `hero` (`video`/`youtube`/`image` + `poster`, `alt`, optional `caption`), `tldr` (2–3 lines, no metric tiles), `links` (`repo`, `writeup`, or custom `{label, url}` entries).
 - Disciplines must be ids from `_data/disciplines.yml`: electronics, embedded, mechanical, ros2-slam, robot-learning, simulation. Use as many as genuinely apply.
 - The body is plain Markdown under exactly these headings, in this order, and each is optional:
   - `## Overview`: what it is and why.
