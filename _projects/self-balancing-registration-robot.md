@@ -18,8 +18,8 @@ hero:
   caption: "An autonomous face-seeking run. Left: my laptop (terminal, live camera with face boxes, and the map). Right: the robot. It finds me, identifies me and adds “Samuel” to the map next to an earlier match, “CL”."
 
 tldr: >-
-  An Imperial EE2 group project (2026) to take the queue out of event
-  registration: a two-wheeled inverted-pendulum robot that maps a venue, seeks
+  A group project with the aim to take the queue out of event
+  registration. Users sign up to an event before hand via a web UI and a two-wheeled inverted-pendulum robot that maps a venue, seeks
   out attendees and recognises them by face. I led the team of six, owned the
   face recognition and web UI, co-developed the mapping stack in ROS 2, and
   integrated the subsystems for the demo.
@@ -36,7 +36,7 @@ links:
 
 ## Overview
 
-Registration queues at conferences grow with attendance. Our answer was a robot that does the registering itself: it drives around the venue, finds people, recognises who has registered and who hasn't, and puts each person on a shared map.
+Registration queues at conferences grow with attendance. Our answer was a robot that does the registering itself. Users sign up before the event by writing their name and uploading selfies of themself. The robot then drives around the venue, finds people, recognises who has registered and who hasn't, and puts each person on a shared map.
 
 The robot is a two-wheeled inverted pendulum, balanced by an ESP32 controller, carrying a Raspberry Pi, a camera and an LD19 2D LiDAR. As team lead, I owned the perception pipeline and the web UI, co-developed localisation and mapping, designed how compute was split across machines, and integrated the subsystems against a fixed demo deadline.
 
@@ -48,7 +48,7 @@ The Pi is only a sensor relay. It streams LiDAR scans and wheel and gyro data ov
 
 ### Face recognition
 
-An SCRFD detector finds faces, and ArcFace turns each one into a 512-dimensional embedding. Embeddings are unit length, so cosine similarity against every enrolled person is a single matrix multiplication followed by an argmax. I chose InsightFace's heavier `buffalo_l` model over the faster `buffalo_s`, trading speed for precision to avoid false identifications. Only embeddings are stored, so no raw facial images persist.
+An SCRFD detector finds faces, and ArcFace turns each one into a 512-dimensional embedding. Embeddings are unit length, so cosine similarity against every enrolled person is a single matrix multiplication followed by an argmax. I chose InsightFace's heavier `buffalo_l` model over the faster `buffalo_s`, trading speed for precision to avoid false identifications. Only embeddings are stored, so no raw facial images are kept ensuring data privacy.
 
 Enrolment takes front, left and right captures. Here my teammate [Carys Leung](https://www.linkedin.com/in/carys-leung/) registers herself:
 
@@ -56,7 +56,7 @@ Enrolment takes front, left and right captures. Here my teammate [Carys Leung](h
 
 ### Localisation and mapping
 
-I benchmarked slam_toolbox against Cartographer in Gazebo, against ground-truth geometry, and we went with slam_toolbox. An EKF (robot_localization) fuses wheel-encoder velocity with gyro yaw rate into odometry, and slam_toolbox corrects that with LiDAR scan matching and loop closure. I integrated wheel encoders instead of double-integrating the accelerometer, so dead-reckoning drift grows linearly rather than quadratically.
+Carys benchmarked slam_toolbox against Cartographer in Gazebo, against ground-truth geometry, and we went with slam_toolbox. An EKF (robot_localization) fuses wheel-encoder velocity with gyro yaw rate into odometry, and slam_toolbox corrects that with LiDAR scan matching and loop closure. We integrated wheel encoders instead of double-integrating the accelerometer, so dead-reckoning drift grows linearly rather than quadratically.
 
 <video src="mapping.mp4" poster="mapping-poster.jpg" muted playsinline controls preload="none" data-loop-video aria-label="Driving the robot by joystick from the web dashboard's camera view, then the finished occupancy map of the arena in RViz"></video>
 
@@ -64,7 +64,7 @@ I benchmarked slam_toolbox against Cartographer in Gazebo, against ground-truth 
 
 A state machine drives the face seeker: rotate to scan, wander with obstacle avoidance, approach the largest face, hold still while it tallies identity votes, then move on. Each person it greets is marked on the map, green if recognised and red if unknown, and the Pi plays a registered or not-registered greeting.
 
-### What broke
+### What broke and did we fix
 
 - **explore_lite couldn't keep up.** I measured 2 s map-update latency and repeated loss of localisation, so I replaced it with a custom frontier explorer.
 - **Balancing wobble smeared the map.** Scans are now dropped whenever the body pitch passes a threshold.

@@ -1,6 +1,6 @@
 ---
 title: "House Helping Robot"
-result: "A low-cost, voice-controlled mobile manipulator: say “grab the vase” and it finds the object with YOLO and a depth camera, solves its arm’s inverse kinematics and retrieves it."
+result: "A low-cost, voice-controlled mobile manipulator: say “grab the vase” and it finds the object with YOLO and a depth camera and moves the arm towards it."
 date: 2022-06-01
 status: shipped
 award: "Runner-up · The Big Bang Competition 2022"
@@ -19,8 +19,7 @@ hero:
 
 tldr: >-
   A home and care-assistant robot I designed and built end to end in 2022,
-  during high school: an aluminium-extrusion base, a 3D-printed arm, custom
-  drive and arm electronics, and a voice → vision → inverse-kinematics pipeline
+  during high school. Built on an aluminium-extrusion base, a 3D-printed arm, custom drive and arm electronics, and a voice → vision → inverse-kinematics pipeline
   that lets anyone ask it to fetch an object. It came runner-up in the Senior
   Engineering category of The Big Bang Competition.
 

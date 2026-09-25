@@ -22,7 +22,7 @@ tldr: >-
   Planetary Robotics Lab and redesigned the whole arm with a team of four. I
   led the design and management, built the V3 control board and moved the
   arm's control into ROS 2 with a custom MoveIt 2 pipeline, then assembled the
-  arm and prototyped parts so we could test before the aluminium arrived.
+  arm and prototyped parts.
 
 links:
   last_year:

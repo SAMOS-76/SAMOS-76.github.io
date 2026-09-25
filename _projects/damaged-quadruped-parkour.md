@@ -1,6 +1,6 @@
 ---
 title: "Parkour for Damaged Quadrupeds"
-result: "Rebuilt a damage-tolerant quadruped parkour pipeline in Isaac Lab and deployed my policy on a Unitree Go2, which climbed a box with its front-left leg motor locked."
+result: "Rebuilt a damage-adaptive quadruped parkour pipeline in Isaac Lab and deployed my policy on a Unitree Go2, which climbs boxes with varying damages."
 date: 2026-09-01
 status: in-progress
 
@@ -34,7 +34,7 @@ links:
 
 From June to September 2026 I worked as an Undergraduate Robotics Researcher in the [Adaptive & Intelligent Robotics Lab](https://www.imperial.ac.uk/adaptive-intelligent-robotics/) at Imperial College London, supervised by Antoine Cully. I continued an existing research project: getting a quadruped to do extreme parkour, such as climbing boxes and crossing gaps, even when it's damaged, for example with a weak or locked motor or a faulty sensor.
 
-Learning-based parkour controllers assume an intact robot, and damage-tolerant controllers mostly stay on flat or rough ground. The project aims for both in one policy, which is never told what's broken.
+Learning-based parkour controllers assume an intact robot, and damage-tolerant controllers mostly stay on flat or rough ground. The project aims for both in one policy generalist policy.
 
 The original was built in Isaac Gym. My job was to reproduce the entire project in Isaac Lab, improve on it, and get it running on a real Unitree Go2.
 
@@ -57,7 +57,7 @@ Isaac Gym is NVIDIA's older simulator. I reproduced every stage of the pipeline 
 
 ### Reworking the damage catalogue
 
-Once the port was working, I looked at how much each damage in the catalogue actually hurt the base policy. Many barely degraded it at all, so the experts trained on them wasted training time and took up damage space without learning any recovery. I restructured the catalogue to be harder, so that most damages now degrade the base policy and every expert has a recovery to learn.
+Once the port was working, I looked at how much each damage in the catalogue actually hurt the base policy. Many barely degraded it at all, so the experts trained on them wasted training time and took up damage space without learning any recovery. I restructured the catalogue to be harder, so that most damages now degrade the base policy and every expert has a damage to adapt to.
 
 ### Sim-to-real on the Go2
 

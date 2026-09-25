@@ -21,7 +21,7 @@ tldr: >-
   My first hackathon: 48 hours in Munich at Europe Embodied 2026, on the Intel
   Industrial Robotics Arm Challenge. I set up a Franka Panda from scratch and
   built a low-latency Meta Quest 3 teleoperation and data-collection pipeline in
-  a day, all on one PC. Our HIL-SERL policy didn't work in time, but the pipeline did.
+  a day, all on one PC.
 
 links:
   event:

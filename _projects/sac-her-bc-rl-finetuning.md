@@ -60,7 +60,7 @@ In-distribution success hides *how* a policy solves the task, so every policy wa
 | SAC + HER, demo-seeded | 100% | 3.48M env-steps |
 | **BC → RL finetune** | **100%** | **1.6M env-steps** |
 
-- **Plain SAC + HER learned to push, not lift.** In 120 instrumented episodes it never raised the cube above 0.023 m (it rests at 0.020 m): 100% success on a nearly flat goal, 0% on every goal above it.
+- **Plain SAC + HER learned to push, not lift.** In 120 episodes it never raised the cube above 0.023 m (it rests at 0.020 m): 100% success on a nearly flat goal, 0% on every goal above it.
 - **BC only generalises as far as its demonstrations:** 95% in distribution, but 13% at the edge of the sweep and 1% at a goal 59% above the training ceiling.
 - **Demonstrations fix exploration** whether they seed the replay buffer or initialise the policy.
 - **BC → RL finetuning matched demo-seeded SAC + HER at under half the environment steps**, and at the hardest goal height it won 99 of the 100 scenes BC failed.
